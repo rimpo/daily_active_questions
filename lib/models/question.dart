@@ -5,7 +5,7 @@ class Question {
   static String prefix = "Did I do my best to ";
   static String postfix = "?.";
 
-  int _id;
+  int id;
   String question;
   DateTime _creation;
   QuestionStatus _status;
@@ -13,7 +13,7 @@ class Question {
   QuestionStatus get status => _status;
 
   Question(String goal) {
-    _id = ++Question._globalID;
+    id = ++Question._globalID;
     question = Question.prefix + goal + Question.postfix;
     _creation = DateTime.now();
     _status = QuestionStatus.Active;

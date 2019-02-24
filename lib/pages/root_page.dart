@@ -6,6 +6,10 @@ import 'package:daily_active_questions/pages/answer_page.dart';
 import 'package:daily_active_questions/pages/question_page.dart';
 import 'package:daily_active_questions/pages/report_page.dart';
 
+import 'package:daily_active_questions/providers/bloc_provider.dart';
+import 'package:daily_active_questions/blocs/question_bloc.dart';
+
+
 class RootPage extends StatefulWidget {
  RootPage({Key key}) : super(key: key);
 
@@ -22,7 +26,9 @@ class _RootPageState extends State<RootPage> {
  ];
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return BlocProvider<QuestionBloc>(
+        bloc: QuestionBloc(),
+      child:MaterialApp(
       title: 'Daily Active Questions',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -42,6 +48,7 @@ class _RootPageState extends State<RootPage> {
         onTap: _onSelection,
       ),
     ),
+  )
   );
 }
   void _onSelection(int index) {

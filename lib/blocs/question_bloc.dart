@@ -1,19 +1,29 @@
+import 'dart:async';
+
 import 'package:daily_active_questions/models/question.dart';
-import 'package:bloc/bloc.dart';
+import 'package:daily_active_questions/providers/bloc_provider.dart';
+import 'package:daily_active_questions/respository/question_repo.dart';
+
+import 'package:rxdart/rxdart.dart';
 
 
-class QuestionEvent {
 
-}
 
-class QuestionBloc  extends Bloc<QuestionEvent, Question> {
-  @override
-  // TODO: implement initialState
-  Question get initialState => null;
+class QuestionBloc  extends BlocBase {
 
-  @override
-  Stream<Question> mapEventToState(Question currentState, QuestionEvent event) {
-    // TODO: implement mapEventToState
-    return null;
+  final QuestionRepository _questionRepo = QuestionRepository();
+
+  final ReplaySubject<List<Question>> _replay = ReplaySubject<List<Question>>();
+
+  Stream<List<Question>> get activeQuestions => _replay.stream; 
+
+  QuestionBloc(){
+    _replay.add(_questionRepo.activeQuestions);
   }
+
+  @override
+  void dispose() {
+    
+  }
+  
 }
