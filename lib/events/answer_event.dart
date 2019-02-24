@@ -1,15 +1,5 @@
-
 import 'package:daily_active_questions/models/answer.dart';
 
-enum AnswerEventType{
-  RatingChanged,
+enum AnswerEvent {
   Submit,
 }
-
-class AnswerEvent {
-  Answer answer;
-  AnswerEventType type;
-
-  AnswerEvent(this.answer, this.type);
-}
-

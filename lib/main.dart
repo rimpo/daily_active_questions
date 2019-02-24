@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:daily_active_questions/pages/root_page.dart';
 

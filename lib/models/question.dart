@@ -23,7 +23,7 @@ class Question {
     _status = QuestionStatus.Active;
   }
 
-  setDelete(){
+  setDelete() {
     _status = QuestionStatus.Deleted;
   }
 
@@ -32,7 +32,6 @@ class Question {
   }
 
   bool IsActive() {
-    return _status ==QuestionStatus.Active;
+    return _status == QuestionStatus.Active;
   }
-
 }

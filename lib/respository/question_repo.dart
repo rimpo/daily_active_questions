@@ -1,11 +1,10 @@
-
 import 'package:daily_active_questions/models/question.dart';
 
 class QuestionRepository {
-
   List<Question> _questions = new List<Question>();
 
-  List<Question> get activeQuestions => _questions.where((q) => q.IsActive()).toList();
+  List<Question> get activeQuestions =>
+      _questions.where((q) => q.IsActive()).toList();
 
   QuestionRepository() {
     _questions.add(Question("Read Books"));
